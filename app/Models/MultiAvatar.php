@@ -34,7 +34,7 @@ class MultiAvatar
         $colors = $themes[$partV][$theme][$part];
         $svgString = $sP[$partV][$part];
 
-        if (preg_match_all('/#(.*?)+(?=;)/', $svgString, $result)) {
+        if (preg_match_all('/#([^;]+)(?=;)/', $svgString, $result)) {
             $i = 0;
             foreach ($result[0] as $var) {
                 $pos = strpos($svgString, $var);
@@ -45,9 +45,7 @@ class MultiAvatar
             }
         }
 
-        $resultFinal = $svgString;
-
-        return $resultFinal;
+        return $svgString;;
     }
 
     public function generate($avatarId, $sansEnv, $ver)
